@@ -4,7 +4,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     private Rigidbody _rb;
-
+    [SerializeField] private GameManager _gameManager;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour
             //particle effect
             //numbers update
             //slider
-            
+            _gameManager.BallIn();
         }
         else if (other.CompareTag("DestroyObject"))
         {
@@ -31,6 +31,7 @@ public class Ball : MonoBehaviour
             _rb.velocity = Vector3.zero;
             _rb.angularVelocity = Vector3.zero; 
             gameObject.SetActive(false);
+            _gameManager.BallOut();
         }
     }
 }

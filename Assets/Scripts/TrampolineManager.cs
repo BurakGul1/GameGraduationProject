@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 public class TrampolineManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private bool _isPressedButton;
-    [SerializeField] private GameObject trampoline;
-    [SerializeField]private float rotatePower;
+    [SerializeField] private GameObject _trampoline;
+    [SerializeField]private float _rotatePower;
     [SerializeField]private string _direction;
     void Update()
     {
@@ -14,11 +14,11 @@ public class TrampolineManager : MonoBehaviour, IPointerDownHandler, IPointerUpH
         {
             if (_direction == "Left")
             {
-                trampoline.transform.Rotate(0, 0,  rotatePower * Time.deltaTime , Space.Self);
+                _trampoline.transform.Rotate(0, 0,  _rotatePower * Time.deltaTime , Space.Self);
             }
             else
             {
-                trampoline.transform.Rotate(0, 0,  -rotatePower * Time.deltaTime , Space.Self);
+                _trampoline.transform.Rotate(0, 0,  -_rotatePower * Time.deltaTime , Space.Self);
             }
         }
     }
