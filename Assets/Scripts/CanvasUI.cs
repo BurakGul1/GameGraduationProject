@@ -49,6 +49,7 @@ public class CanvasUI : MonoBehaviour
     public void ClickPlayButton()
     {
         StartCoroutine(LoadingPanel());
+        Time.timeScale = 1f;
     }
 
     IEnumerator LoadingPanel()
@@ -84,6 +85,7 @@ public class CanvasUI : MonoBehaviour
         yield return new WaitForSeconds(3f);
         mainMenuManager.ReturnToMainMenu(); // Ana menüye dönmek için bir yöntem
         mainMenuPanel.SetActive(true);
+        Time.timeScale = 0f;
         loadingPanel.SetActive(false);
     }
 
