@@ -106,6 +106,7 @@ public class CanvasUI : MonoBehaviour
         pausePanel.SetActive(false);
         winPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        gamePanel.SetActive(true);
         Time.timeScale = 1f;
     }
 
@@ -113,6 +114,7 @@ public class CanvasUI : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         winPanel.SetActive(false);
+        gamePanel.SetActive(true);
         Time.timeScale = 1f;
     }
 }
