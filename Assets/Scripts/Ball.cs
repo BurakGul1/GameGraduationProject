@@ -14,11 +14,7 @@ public class Ball : MonoBehaviour
     {
         if (other.CompareTag("Bucket"))
         {
-            gameObject.transform.localPosition = Vector3.zero;
-            gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            _rb.velocity = Vector3.zero;
-            _rb.angularVelocity = Vector3.zero;
-            gameObject.SetActive(false);
+            TechnicalOperations();
             //particle effect
             //numbers update
             //slider
@@ -26,12 +22,19 @@ public class Ball : MonoBehaviour
         }
         else if (other.CompareTag("DestroyObject"))
         {
-            gameObject.transform.localPosition = Vector3.zero;
-            gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            _rb.velocity = Vector3.zero;
-            _rb.angularVelocity = Vector3.zero; 
-            gameObject.SetActive(false);
+            TechnicalOperations();
             _gameManager.BallOut();
         }
+    }
+
+    void TechnicalOperations()
+    {
+        Renderer color = GetComponent<Renderer>();
+        _gameManager.ParticleEffect(gameObject.transform.position, color.material.color);
+        gameObject.transform.localPosition = Vector3.zero;
+        gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero; 
+        gameObject.SetActive(false);
     }
 }

@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CanvasUI : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class CanvasUI : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] public GameObject winPanel;
+    [SerializeField] public GameObject gameOverPanel;
+    [SerializeField] public TextMeshProUGUI _LevelCount;
     private void Awake()
     {
         SingletonThis();
@@ -65,6 +70,7 @@ public class CanvasUI : MonoBehaviour
     {
         pausePanel.SetActive(false);
         gamePanel.SetActive(true);
+        Time.timeScale = 1f;
     }
     public void ClickBackButton()
     {
@@ -92,5 +98,21 @@ public class CanvasUI : MonoBehaviour
     {
         settingsPanel.SetActive(false);
         pausePanel.SetActive(true);
+    }
+
+    public void RetryButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        pausePanel.SetActive(false);
+        winPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        winPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

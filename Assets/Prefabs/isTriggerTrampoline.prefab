@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34705d524e4c09047b9d262b0fb1c0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trampoline: {fileID: 4880627735557971355}
-  rotatePower: 40
+  _trampoline: {fileID: 4880627735557971355}
+  _rotatePower: 25
   _direction: Right
 --- !u!1 &4880627735557971355
 GameObject:
@@ -683,6 +683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34705d524e4c09047b9d262b0fb1c0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trampoline: {fileID: 4880627735557971355}
-  rotatePower: 40
+  _trampoline: {fileID: 4880627735557971355}
+  _rotatePower: 25
   _direction: Left
